@@ -1,4 +1,3 @@
-
 2235( Add Two Integers)
 
  class Solution {
@@ -8,6 +7,13 @@
 }
 
 2119( A Number After a Double Reversal)
+class Solution {
+    public boolean isSameAfterReversals(int num) {
+        if (num == 0) return true;
+        if (num % 10 == 0) return false;
+        return true;
+    }
+}
 
 
 2481(Minimum Cuts to Divide a Circle)
@@ -95,17 +101,6 @@ class Solution {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 L2651(Calculate Delayed Arrival Time)
    
     class Solution {
@@ -143,9 +138,64 @@ L2651(Calculate Delayed Arrival Time)
 
 2600(K Items With the Maximum Sum)
 
+ class Solution {
+    public int kItemsWithMaximumSum(int numOnes, int numZeros, int numNegOnes, int k) {
+        int sum = 0;
+        int takeOnes = Math.min(numOnes, k);
+        sum += takeOnes;
+        k -= takeOnes;
+        int takeZeros = Math.min(numZeros, k);
+        k -= takeZeros;
+        sum -= k;
+        return sum;
+    }
+}
 
 2549(Count Distinct Numbers on Board)
 
+class Solution {
+    public int distinctIntegers(int n) {
+        return n == 1 ? 1 : n - 1;
+    }
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        System.out.println(sol.distinctIntegers(5)); 
+        System.out.println(sol.distinctIntegers(3));
+        System.out.println(sol.distinctIntegers(1));
+    }
+}
+
+
+2769(Find the Maximum Achievable Number)
+
+   class Solution {
+    public int theMaximumAchievableX(int num, int t) {
+        return num + 2 * t;
+    }
+}
+
+2806(Account Balance After Rounded Purchase)
+
+  class Solution {
+    public int accountBalanceAfterPurchase(int purchaseAmount) {
+      int roundedAmount = ((purchaseAmount + 5) / 10) * 10;
+        return 100 - roundedAmount;  
+    }
+}
+
+2582(Pass the Pillow)
+
+class Solution {
+    public int passThePillow(int n, int time) {
+       int cycle = 2 * (n - 1);
+        int t = time % cycle;
+        if (t < n) {
+            return 1 + t;
+        } else {
+            return n - (t - (n - 1));
+        } 
+    }
+}
 
 
 
